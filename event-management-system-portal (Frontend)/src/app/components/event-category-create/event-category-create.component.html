@@ -1,0 +1,40 @@
+<div class="container m-5">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <form [formGroup]="categoryFormGroup" (ngSubmit)="onSubmit()">
+          <h2>New Event Category</h2>
+          <hr />
+          <div formGroupName="category">
+            <div class="my-3">
+              <label for="" class="form-label">Category Name: </label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="categoryName"
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="
+                  categoryName?.invalid &&
+                  (categoryName?.touched || categoryName?.dirty)
+                "
+              >
+                <div *ngIf="categoryName?.errors?.['required']">
+                  Category name is required
+                </div>
+
+                <div *ngIf="categoryName?.errors?.['pattern']">
+                    Category name is invalid
+              </div>
+            </div>
+          </div>
+          </div>
+          <!-- submit button -->
+          <div class="d-grid">
+            <input type="submit" value="Add Category" class="btn btn-primary" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

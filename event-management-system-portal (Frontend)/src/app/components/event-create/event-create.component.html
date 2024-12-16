@@ -1,0 +1,88 @@
+<div class="container m-5">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <form [formGroup]="eventFormGroup" (ngSubmit)="onSubmit()">
+                <div formGroupName="event">
+                    <h2>Add New Event Details</h2>
+                    <hr />
+                    <!-- category control -->
+                    <div class="my-3">
+                        <label class="form-label">Category:</label>
+                        <select formControlName="category" class="form-control">
+                            <option *ngFor="let eventCategory of eventCategories" [ngValue]="eventCategory">
+                                {{ eventCategory.categoryName }}
+                            </option>
+                        </select>
+                        <div *ngIf="
+                  category?.invalid && (category?.touched || category?.dirty)
+                " class="alert alert-danger">
+                            <div *ngIf="category?.errors?.['required']">
+                                Category is required
+                            </div>
+                        </div>
+                    </div>
+                    <!-- category control ended-->
+
+                    <!-- eventType control-->
+                    <div class="my-3">
+                        <label class="form-label">Event Type: </label>
+                        <input type="text" class="form-control" formControlName="eventType" />
+                        <div *ngIf="eventType?.invalid && (eventType?.touched || eventType?.dirty)"
+                            class="alert alert-danger">
+                            <div *ngIf="eventType?.errors?.['required']"> Event Type is required</div>
+                        </div>
+                    </div>
+                    <!-- eventType control ended-->
+
+                    <!-- eventTitle control-->
+                    <div class="my-3">`
+                        <label class="form-label">Event Title: </label>
+                        <input type="text" class="form-control" formControlName="eventTitle" />
+                        <div *ngIf="
+                      eventTitle?.invalid &&
+                (eventTitle?.touched || eventTitle?.dirty)
+              " class="alert alert-danger">
+                            <div *ngIf="eventTitle?.errors?.['required']">
+                                Event Title is required
+                            </div>
+                        </div>
+                    </div>
+                    <!-- eventTitle control ended-->
+
+                    <!-- eventAddress control-->
+                    <div class="my-3">
+                        <label class="form-label">Event Address: </label>
+                        <input type="text" class="form-control" formControlName="eventAddress" />
+                        <div *ngIf="
+                      eventAddress?.invalid && (eventAddress?.touched || eventAddress?.dirty)
+              " class="alert alert-danger">
+                            <div *ngIf="eventAddress?.errors?.['required']">
+                                Event Address is required
+                            </div>
+                        </div>
+                    </div>
+                    <!-- eventAddress control ended-->
+
+                    <!-- eventDateTime control-->
+                    <div class="my-3">
+                        <label class="form-label"> EventDateTime: </label>
+                        <input type="text" class="form-control" formControlName="eventDateTime" />
+                        <div *ngIf="
+                        eventDateTime?.invalid && (eventDateTime?.touched || eventDateTime?.dirty)
+              " class="alert alert-danger">
+                            <div *ngIf="eventDateTime?.errors?.['required']">
+                                Event Address is required
+                            </div>
+                        </div>
+                    </div>
+                    <!-- eventDateTime control ended-->
+                </div>
+
+                <!-- submit button-->
+                <div class="d-grid">
+                    <input type="submit" value="Add New Event" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

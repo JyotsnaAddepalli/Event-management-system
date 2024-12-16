@@ -1,0 +1,24 @@
+<p>event-list works!</p>
+<div class="table-responsive m=5">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>EventType</th>
+                <th>EventTitle</th>
+                <th>EventAddress </th>
+                <th>EventDateTime</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let event of events">
+                <td>{{ event.id }}</td>
+                <td>{{ event.eventType }}</td>
+                <td>{{ event.eventTitle }}</td>
+                <td>{{ event.eventAddress }}</td>
+                <td>{{ event.eventDateTime }}</td>
+            </tr>
+        </tbody>
+    
+    </table>
+    </div>

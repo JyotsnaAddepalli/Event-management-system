@@ -1,0 +1,35 @@
+<div class="m-5">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>CATEGORY NAME</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let eventCategory of eventCategories">
+                <td>
+                <button
+                 class="btn btn-danger"
+                 (click)= "removeCategory(eventCategory.id)"
+                 >
+                 Delete
+                </button>
+
+                <button
+                 class="btn btn-success"
+                 (click)= "showEventCategoryEdit(eventCategory.id)"
+                 >
+                 Edit
+                </button>
+            </td>
+                <td>{{ eventCategory.id }}</td>
+                <td>{{ eventCategory.categoryName }}</td>
+            </tr>
+
+            <tr *ngIf="!eventCategories || eventCategories.length ==0">
+                <td colspan="3">No data available</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
